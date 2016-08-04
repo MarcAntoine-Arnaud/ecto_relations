@@ -1,0 +1,6 @@
+<h2>Edit stream</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: stream_path(@conn, :update, @stream) %>
+
+<%= link "Back", to: stream_path(@conn, :index) %>

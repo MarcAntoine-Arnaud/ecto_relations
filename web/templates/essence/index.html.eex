@@ -1,0 +1,28 @@
+<h2>Listing essences</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Kind</th>
+      <th>Codec</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for essence <- @essences do %>
+    <tr>
+      <td><%= essence.kind %></td>
+      <td><%= essence.codec %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: essence_path(@conn, :show, essence), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: essence_path(@conn, :edit, essence), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: essence_path(@conn, :delete, essence), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New essence", to: essence_path(@conn, :new) %>

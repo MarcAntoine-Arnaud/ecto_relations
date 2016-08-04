@@ -1,0 +1,18 @@
+<h2>Show stream</h2>
+
+<ul>
+
+  <li>
+    <strong>Index:</strong>
+    <%= @stream.index %>
+  </li>
+
+  <li>
+    <strong>File:</strong>
+    <%= @stream.file_id %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: stream_path(@conn, :edit, @stream) %>
+<%= link "Back", to: stream_path(@conn, :index) %>

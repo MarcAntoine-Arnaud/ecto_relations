@@ -1,0 +1,6 @@
+<h2>New essence</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: essence_path(@conn, :create) %>
+
+<%= link "Back", to: essence_path(@conn, :index) %>

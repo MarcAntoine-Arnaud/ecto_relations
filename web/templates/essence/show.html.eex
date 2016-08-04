@@ -1,0 +1,18 @@
+<h2>Show essence</h2>
+
+<ul>
+
+  <li>
+    <strong>Kind:</strong>
+    <%= @essence.kind %>
+  </li>
+
+  <li>
+    <strong>Codec:</strong>
+    <%= @essence.codec %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: essence_path(@conn, :edit, @essence) %>
+<%= link "Back", to: essence_path(@conn, :index) %>

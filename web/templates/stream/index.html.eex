@@ -1,0 +1,28 @@
+<h2>Listing streams</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>File</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for stream <- @streams do %>
+    <tr>
+      <td><%= stream.index %></td>
+      <td><%= stream.file_id %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: stream_path(@conn, :show, stream), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: stream_path(@conn, :edit, stream), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: stream_path(@conn, :delete, stream), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New stream", to: stream_path(@conn, :new) %>
