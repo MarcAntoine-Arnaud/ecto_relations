@@ -1,7 +1,9 @@
+<<<<<<< HEAD
 # App artifacts
 /_build
 /db
 /deps
+/cover
 /*.ez
 
 # Generate on crash by the VM
