@@ -40,15 +40,21 @@ defmodule EctoRelations.EssenceController do
   end
 
   def edit(conn, %{"id" => id}) do
-    essence = Repo.get!(Essence, id)
+    essence = Repo.get!(Essence, id) |> Repo.preload(:streams)
     changeset = Essence.changeset(essence)
     template = EctoRelations.Common.template(conn, "edit")
     render(conn, template, essence: essence, changeset: changeset)
   end
 
   def update(conn, %{"id" => id, "essence" => essence_params}) do
-    essence = Repo.get!(Essence, id)
-    changeset = Essence.changeset(essence, essence_params)
+    essence = Repo.get!(Essence, id) |> Repo.preload(:streams)
+    # changeset = Essence.changeset(essence, essence_params)
+
+    changeset =
+      essence
+      |> Ecto.Changeset.change
+      |> Ecto.Changeset.put_assoc(:streams, [essence_params])
+
 
     case Repo.update(changeset) do
       {:ok, essence} ->
@@ -62,7 +68,7 @@ defmodule EctoRelations.EssenceController do
   end
 
   def delete(conn, %{"id" => id}) do
-    essence = Repo.get!(Essence, id)
+    essence = Repo.get!(Essence, id) |> Repo.preload(:streams)
 
     # Here we use delete! (with a bang) because we expect
     # it to always work (and if it does not, it will raise).

@@ -12,6 +12,13 @@
     <%= @essence.codec %>
   </li>
 
+  <li>
+    <strong>Streams:</strong>
+    <%= for stream <- @essence.streams do %>
+      <div><%= stream.id %> - file_id: <%= stream.file_id %>, index <%= stream.index %></div>
+    <% end %>
+  </li>
+
 </ul>
 
 <%= link "Edit", to: essence_path(@conn, :edit, @essence) %>

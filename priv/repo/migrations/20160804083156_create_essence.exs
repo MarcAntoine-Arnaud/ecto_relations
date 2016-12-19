@@ -6,7 +6,6 @@ defmodule EctoRelations.Repo.Migrations.CreateEssence do
       add :kind, :string
       add :codec, :string
       add :stream_id, references(:streams, on_delete: :nothing)
-
       timestamps
     end
 

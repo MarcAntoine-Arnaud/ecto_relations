@@ -1,4 +1,4 @@
-defmodule EctoRelations.PostCategory do
+defmodule EctoRelations.EssenceStream do
   use EctoRelations.Web, :model
 
   schema "essences_streams" do

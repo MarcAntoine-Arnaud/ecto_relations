@@ -6,7 +6,7 @@ defmodule EctoRelations.Essence do
   schema "essences" do
     field :kind, :string
     field :codec, :string
-    many_to_many :streams, EctoRelations.Stream, join_through: EctoRelations.PostCategory
+    many_to_many :streams, EctoRelations.Stream, join_through: EctoRelations.EssenceStream
     timestamps
   end
 

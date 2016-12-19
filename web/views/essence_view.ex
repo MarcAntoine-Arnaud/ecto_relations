@@ -11,14 +11,7 @@ defmodule EctoRelations.EssenceView do
     %{data: render_one(essence, __MODULE__, "essence.json")}
   end
 
-  def render("new.json", conn) do
-    Logger.error conn.changeset.errors
-    %{errors: "unknown"}
-  end
-
   def render("essence.json", %{essence: essence}) do
-    Logger.info "#{inspect essence}"
-    Logger.info "#{inspect essence.streams}"
     streams = render_many(essence.streams, EctoRelations.StreamView, "stream.json")
     %{
       id: essence.id,
